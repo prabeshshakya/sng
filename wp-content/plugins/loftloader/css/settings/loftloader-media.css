@@ -1,0 +1,23 @@
+/**
+ * Description: Hide some widgets of WP Media Panel for use in LoftLoader
+ */
+
+#loftloader-image-uploader .media-frame-content,
+#loftloader-image-uploader .media-frame-router,
+#loftloader-image-uploader .media-frame-title,
+#loftloader-image-uploader .media-frame-toolbar {
+    left: 0;
+}
+
+#loftloader-image-uploader .media-frame-menu,
+#loftloader-image-uploader .media-toolbar-secondary,
+#loftloader-image-uploader .attachment-details,
+#loftloader-image-uploader .attachment-display-settings h3 ~ .setting,
+#loftloader-image-uploader .attachment-display-settings h2 ~ .setting {
+    display: none;
+}
+
+#loftloader-image-uploader .attachment-display-settings h3 ~ .setting:last-child,
+#loftloader-image-uploader .attachment-display-settings h2 ~ .setting:last-child {
+    display: block;
+}

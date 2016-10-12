@@ -1,0 +1,42 @@
+{
+  "dependencies": {
+    "main.js": {
+      "files": [
+        "scripts/main.js"
+      ],
+      "main": true
+    },
+    "main.css": {
+      "files": [
+        "styles/main.scss"
+      ],
+      "main": true
+    },
+    "customizer.js": {
+      "files": [
+        "scripts/customizer.js"
+      ]
+    },
+    "imagesLoaded.js":{
+        "files" : [
+          "scripts/imagesloaded.pkgd.min.js"
+        ]
+    },
+    "bxslider.js":{
+        "files" : [
+          "scripts/jquery.bxslider.min.js"
+        ]
+    },
+    "imagefill.js":{
+        "files" : [
+          "scripts/jquery-imagefill.js"
+        ]
+    },
+    "jquery.js": {
+      "bower": ["jquery"]
+    }
+  },
+  "config": {
+    "devUrl": "http://example.dev"
+  }
+}

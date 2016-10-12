@@ -1,0 +1,547 @@
+/**
+ * Description: Controls the layouts and styles of LoftLoader settings page.
+ */
+
+/**
+ * Table of Contents:
+ *
+ * 1.0 - Basics
+ *    
+ * 2.0 - Panel Footer
+ * 
+ * 3.0 - Panel Content
+ * 
+ * 4.0 - Restyle UI Slider
+ *    
+ * 5.0 - Restyle Color Picker
+ *
+ * 6.0 - Loader Preview Freame
+ *
+ * 7.0 - Lodaer Preview Frame - Background and Ending
+ * 
+ * 8.0 - Media Queries
+ */
+
+
+/* ==========================================================================
+   1.0 Basics
+   ========================================================================== */
+
+.loftloader-options-panel {
+    position: relative;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: auto;
+    font-size: 13px;
+}
+
+.loftloader-options-panel * {
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1.loftloader-option-section-title {
+    position: relative;
+    margin-bottom: 24px;
+    border-bottom: 1px solid #CCC;
+    padding-bottom: 20px;
+}
+
+.loftloader-option-section-title:after {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: #FFF;
+    content: "";
+}
+
+.loftloader-options-panel .bg-img-holder {
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    margin-right: 12px;
+    cursor: pointer;
+}
+
+.loftloader-options-panel .bg-img-holder:hover {
+    border-color: #248ACC;
+}
+
+.loftloader-options-panel .bg-img-remove {
+    display: inline-block;
+    cursor: pointer;
+    color: #248ACC;
+}
+
+.loftloader-options-panel .bg-img-remove:hover {
+    text-decoration: underline;
+}
+
+.loftloader-options-panel .bg-img-holder img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 120px;
+    max-height: 120px;
+    margin-left: 0;
+}
+
+.loftloader-options-panel input[type="text"],
+.loftloader-options-panel input[type="number"] {
+    width: 80px;
+    padding: 3px 10px;
+}
+
+/**
+ * Hide elements.
+ */
+
+.loftloader-options-panel .hide {
+    display: none !important;
+}
+
+
+/* ==========================================================================
+   2.0 Panel Footer
+   ========================================================================== */
+
+.loftloader-options-panel .panel-footer {
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    padding: 24px 0;
+    border-top: 1px solid #CCC;
+}
+
+.loftloader-options-panel .panel-footer:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: #FFF;
+    content: "";
+}
+
+.loftloader-options-panel .panel-footer p.submit {
+    float: right;
+    margin: 0;
+    padding: 0;
+}
+
+.loftloader-options-panel .panel-footer p.reset {
+    float: left;
+    margin: 0;
+}
+
+
+/* ==========================================================================
+   3.0 Panel Content
+   ========================================================================== */
+
+.loftloader-options-panel .setting-group {
+    margin-bottom: 30px;
+    background: #FFF;
+    border: 1px solid #DDD;
+    border-radius: 5px;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.05);
+}
+
+.loftloader-options-panel .setting-group h3 {
+    margin: 0;
+    padding: 10px 20px;
+    background: rgba(0, 0, 0, 0.03);
+    border-bottom: 1px solid #DDD;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.loftloader-options-panel ul {
+    margin-left: 0;
+    padding: 24px 20px;
+    list-style: none;
+}
+
+.loftloader-options-panel ul li {
+    position: relative;
+    display: block;
+    padding-top: 20px;
+    margin: 0 0 24px;
+    border-top: 1px solid #EEE;
+    overflow: hidden;
+}
+
+.loftloader-options-panel ul li:first-child {
+    padding-top: 0;
+    border-top: none;
+}
+
+.loftloader-options-panel ul li:last-child {
+    margin-bottom: 0;
+}
+
+.loftloader-options-panel ul.form-list li:after {
+    position: relative;
+    display: block;
+    clear: both;
+    content: "";
+}
+
+.loftloader-options-panel ul.form-list li .list-title,
+.loftloader-options-panel ul.form-list li .list-content {
+    float: left;
+    width: 50%;
+}
+
+.loftloader-options-panel ul.form-list li .list-title {
+    padding-right: 50px;
+}
+
+.loftloader-options-panel ul.form-list li .list-title h4 {
+    margin: 0;
+    font-size: 14px;
+    line-height: 28px;
+}
+
+.loftloader-options-panel span.description {
+    font-weight: normal;
+    color: #999;
+    font-size: 12px;
+    font-style: normal;
+    line-height: 1em;
+}
+
+/* Restyle Checkbox
+   ========================================================================== */
+
+.loftloader-options-panel label {
+    position: relative;
+    display: inline-block;
+    height: 30px;
+}
+
+.loftloader-options-panel input[type="checkbox"] {
+    position: relative;
+    z-index: 9;
+    opacity: 0;
+}
+
+.loftloader-options-panel .on-off {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    z-index: 1;
+    display: inline-block;
+    width: 56px;
+    height: 26px;
+    padding: 1px;
+    border-radius: 13px;
+    background: #EEE;
+    border: 1px solid #DDD;
+    transition: 0.3s;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.05);
+}
+
+.loftloader-options-panel .on-off span {
+    -webkit-transform: translateX(30px);
+    -ms-transform: translateX(30px);
+    transform: translateX(30px);
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    background: #FFF;
+    border-radius: 50%;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+
+.loftloader-options-panel input[type="checkbox"]:checked + .on-off {
+    background: rgba(48, 154, 213, 0.7);
+    border-color: #248ACC;
+}
+
+.loftloader-options-panel input[type="checkbox"]:focus + .on-off {
+    border-color: #5B9DD9;
+    box-shadow: 0 0 2px rgba(30, 140, 190, 0.8);
+}
+
+.loftloader-options-panel input[type="checkbox"]:checked + .on-off span {
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+}
+
+
+/* ==========================================================================
+   4.0 Restyle UI Slider
+   ========================================================================== */
+
+.loftloader-options-panel .ui-slider.loader-ui-slider {
+    position: relative;
+    float: left;
+    display: block;
+    width: calc(100% - 120px);
+    height: 24px;
+    margin: 3px 0 0;
+    background: none;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+}
+
+.loftloader-options-panel .ui-slider.loader-ui-slider:before {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #DCDCDC;
+    content: "";
+}
+
+.loftloader-options-panel label.amount {
+    float: left;
+    margin-right: 20px;
+}
+
+.loftloader-options-panel .ui-slider.loader-ui-slider .ui-slider-range-min {
+    top: 50%;
+    height: 2px;
+    background: #248ACC;
+    border-radius: 0;
+}
+
+.loftloader-options-panel .ui-slider.loader-ui-slider .ui-slider-handle {
+    top: 8px;
+    width: 10px;
+    height: 10px;
+    background: #248ACC;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+    border: 1px solid #248ACC;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+}
+
+.loftloader-options-panel .ui-slider.loader-ui-slider .ui-slider-handle.ui-state-focus {
+    border-color: #5B9DD9;
+    box-shadow: 0 0 2px rgba(30, 140, 190, 0.8);
+}
+
+
+/* ==========================================================================
+   5.0 Restyle Color Picker
+   ========================================================================== */
+
+.loftloader-options-panel .wp-picker-container .wp-color-result {
+    height: 28px;
+    margin-right: 6px;
+    padding-left: 30px;
+    border: 1px solid #DDD;
+    border-radius: 5px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.08);
+    line-height: 26px;
+}
+
+.loftloader-options-panel .wp-picker-container .wp-color-result:after {
+    height: 25px;
+    margin: 0;
+    padding: 0 12px 1px;
+    background: #F9F9F9;
+    border-left: 1px solid #DDD;
+    -webkit-appearance: none;
+    border-radius: 0 4px 4px 0;
+    color: #999;
+    vertical-align: top;
+    font-size: 13px;
+    line-height: 26px;
+}
+
+.loftloader-options-panel .wp-picker-container .wp-color-result:focus {
+    border-color: #5B9DD9;
+    box-shadow: 0 0 2px rgba(30, 140, 190, 0.8);
+}
+
+.loftloader-options-panel .wp-picker-container .wp-picker-open + .wp-picker-input-wrap {
+    margin-top: 2px;
+}
+
+
+/* ==========================================================================
+   6.0 Loader Preview Frame
+   ========================================================================== */
+
+.loftloader-options-panel .preview-section {
+    position: relative;
+    margin-top: 40px;
+}
+
+.loftloader-options-panel .preview-wrapper {
+    margin-bottom: 40px;
+}
+
+.loftloader-options-panel .preview-settings {
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+
+.loftloader-options-panel .preview-settings .setting-group {
+    float: left;
+    width: 48%;
+    margin-right: 2%;
+}
+
+.loftloader-options-panel .preview-settings .setting-group:last-of-type {
+    margin-right: 0;
+    margin-left: 2%;
+}
+
+.loftloader-options-panel .preview-settings h4 {
+    margin-bottom: 0.5em;
+}
+
+.loftloader-options-panel .preview-settings .setting-group li {
+    margin-bottom: 24px;
+}
+
+.loftloader-options-panel .preview-frame {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    margin-top: 30px;
+    border: 1px solid #DDD;
+    overflow: hidden;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.loftloader-options-panel .preview-frame:after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    display: block;
+    width: 100%;
+    height: auto;
+    color: #DDD;
+    content: "YOUR SITE CONTENT";
+    font-weight: bold;
+    font-size: 36px;
+    text-align: center;
+    line-height: 1.5;
+    letter-spacing: 0.2em;
+}
+
+/**
+ *  Hide the loading animation on hover.
+ */
+
+.loftloader-options-panel .preview-frame:hover #loader {
+    opacity: 0;
+    transition: all 0.3s ease-out;
+}
+
+
+/* ==========================================================================
+   7.0 Lodaer Preview Frame - Background and Ending
+   ========================================================================== */
+
+.loftloader-options-panel .preview-frame #loftloader-wrapper {
+    position: relative;
+}
+
+.loftloader-options-panel .preview-frame #loftloader-wrapper .loader-section {
+    position: absolute;
+}
+
+.loftloader-options-panel .preview-frame:hover #loftloader-wrapper .loader-section.section-left {
+    -webkit-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    transform: translateX(-100%);
+    transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+}
+
+.loftloader-options-panel .preview-frame:hover #loftloader-wrapper .loader-section.section-right {
+    -webkit-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    transform: translateX(100%);
+    transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+}
+
+.loftloader-options-panel .preview-frame:hover #loftloader-wrapper .loader-section.section-up {
+    -webkit-transform: translateY(-100%);
+    -ms-transform: translateY(-100%);
+    transform: translateY(-100%);
+    transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+}
+.loftloader-options-panel .preview-frame:hover #loftloader-wrapper .loader-section.section-down {
+    -webkit-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    transform: translateY(100%);
+    transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+}
+
+.loftloader-options-panel .preview-frame:hover #loftloader-wrapper .loader-section.section-fade {
+    opacity: 0 !important;
+    transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+}
+
+.loftloader-options-panel .preview-frame:hover #loftloader-wrapper .loader-section.section-slide-up {
+    -webkit-transform: translateY(-100%);
+    -ms-transform: translateY(-100%);
+    transform: translateY(-100%);
+    transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+}
+
+
+/* ==========================================================================
+   8.0 Media Queries
+   ========================================================================== */
+
+@media screen and (max-width : 800px) {
+    .loftloader-options-panel .preview-settings .setting-group {
+        float: none;
+        width: 100%;
+        margin-right: 0;
+    }
+    
+    .loftloader-options-panel .preview-settings .setting-group:last-of-type {
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width : 640px) {
+    .loftloader-options-panel ul.form-list li .list-title,
+    .loftloader-options-panel ul.form-list li .list-content {
+        float: none;
+        width: 100%;
+    }
+    
+    .loftloader-options-panel ul.form-list li .list-title {
+        margin-bottom: 10px;
+        padding-right: 0;
+    }
+    
+    .loftloader-options-panel .ui-slider.loader-ui-slider {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width : 340px) {
+    .loftloader-options-panel .panel-footer p.submit,
+    .loftloader-options-panel .panel-footer p.reset {
+        float: none;
+    }
+    
+    .loftloader-options-panel .panel-footer p.submit {
+        margin-bottom: 10px;
+    }
+}
